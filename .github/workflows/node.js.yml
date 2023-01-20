@@ -5,7 +5,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "gh-pages" ]
   pull_request:
     branches: [ "main" ]
 
@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -31,8 +31,7 @@ jobs:
     - run: npm run export
 
 
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4.2.5
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        branch: gh-pages
-        folder: out
+          folder: out # The folder the action should deploy.
